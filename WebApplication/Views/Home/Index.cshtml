@@ -14,6 +14,8 @@
         function searchFunction(txtBar)
         {
             nameSearch = document.getElementById(txtBar).value
+            firstName = nameSearch.substr(0,nameSearch.indexOf(' '));
+            lastName = nameSearch.substr(nameSearch.indexOf(' ') + 1);
             id = @Model.GetIndexOfProfileByName("Samantha", "Johnson");
             path = false;
             if (id > 0)
@@ -21,9 +23,17 @@
                 path = true;
                 document.getElementById("hSearch").href = "/profiles/view/" + id;
             }
-            alert("Found id: " + id + " and nameSearch is: " + nameSearch)
+            if (!isBlank(firstName) && !isBlank(lastName))
+            {
+                alert("Found id: " + id + " and nameSearch is: " + firstName + " " + lastName)
+            }
             return path;
-        }   
+        }
+
+        function isBlank(str)
+        {
+            return (!str || /^\s*$/.test(str));
+        }
 
     </script>
 

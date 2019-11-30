@@ -89,5 +89,21 @@ namespace Profiles.Business
             }
             return foundProfile;
         }
+
+        public int GetIndexOfProfileByName(string fName, string lName)
+        {
+            int foundIndex = 1;
+            foreach (var person in ProfileList.Select((x, i) => new { profile = x, index = i }))
+            {
+                //Profile Found, collect index and break out of ForEach Loop
+                if (person.profile.FirstName.ToUpper().Equals(fName.ToUpper()) &&
+                    person.profile.LastName.ToUpper().Equals(lName.ToUpper()))
+                {
+                    foundIndex = person.index+1;
+                    break;
+                }
+            }
+            return foundIndex;
+        }
     }
 }

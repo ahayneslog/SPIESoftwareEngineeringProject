@@ -5,6 +5,30 @@
     ViewBag.Title = "Profile Home Page";
 }
 
+@Scripts.Render("~/Scripts/ProfileHelper.js")
+
+@section scripts {
+
+    <script>
+
+        function searchFunction(txtBar)
+        {
+            nameSearch = document.getElementById(txtBar).value
+            id = @Model.GetIndexOfProfileByName("Samantha", "Johnson");
+            path = false;
+            if (id > 0)
+            {
+                path = true;
+                document.getElementById("hSearch").href = "/profiles/view/" + id;
+            }
+            alert("Found id: " + id + " and nameSearch is: " + nameSearch)
+            return path;
+        }   
+
+    </script>
+
+}
+
 <div style="width:580px;display:inline-block">
 
     <table>
@@ -13,7 +37,7 @@
                 <td colspan="2">
                     <div style="padding: 37px 60px 16px 0px;">
                         <span class="formText07" style="color: #000000; font-size: 36px; letter-spacing: 0px; line-height: 39px;">
-                            SPIE Profiles is an Optics and Photonics networking Platform for Professionals
+                            SPIE Profiles is an Optics and Photonics Networking Platform for Professionals
                         </span>
                     </div>
                 </td>
@@ -22,7 +46,10 @@
                 <td>
                     <span class="formText01" style="color: #000000; font-size: 20px;">Search Profiles</span> <br>
                     <input name="txtSearch" type="text" maxlength="100" id="txtSearch" class="formFieldCommon inputSearch" style="float:left;font-size:18px;height:40px;padding:4px;  border: solid 1px #bfc0c1;">
-                    <a id="hSearch" style="height:30px;cursor:pointer;" onmouseout="document.getElementById('imgSearch').src='/images/MagGlass_Btn_Norm.jpg';" onmouseover="document.getElementById('imgSearch').src='/images/MagGlass_Btn_Over.jpg';"><img id="imgSearch" src="/images/MagGlass_Btn_Norm.jpg" border="0"></a>
+                    <a id="hSearch" style="height:30px;cursor:pointer;" onmouseout="document.getElementById('imgSearch').src='/images/MagGlass_Btn_Norm.jpg';"
+                       href="#" target="_blank" onclick='return searchFunction("txtSearch")' onmouseover="document.getElementById('imgSearch').src='/images/MagGlass_Btn_Over.jpg';">
+                        <img id="imgSearch" src="/images/MagGlass_Btn_Norm.jpg" border="0">
+                    </a>
                 </td>
 
                 <td>

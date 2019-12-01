@@ -25,6 +25,17 @@ namespace WebApplication
             );
 
             routes.MapRoute(
+                name: "SearchProfiles",
+                url: "SearchProfiles",
+                defaults: new
+                {
+                    controller = "Home",
+                    action = "SearchProfiles",
+                    txtSearch = UrlParameter.Optional
+                }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

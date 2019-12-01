@@ -92,7 +92,7 @@ namespace Profiles.Business
 
         public int GetIndexOfProfileByName(string fName, string lName)
         {
-            int foundIndex = 1;
+            int foundIndex = -1;
             foreach (var person in ProfileList.Select((x, i) => new { profile = x, index = i }))
             {
                 //Profile Found, collect index and break out of ForEach Loop

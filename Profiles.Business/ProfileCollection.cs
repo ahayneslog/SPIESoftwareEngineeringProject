@@ -142,18 +142,22 @@ namespace Profiles.Business
         /// <returns></returns>
         public List<Profile> GetRandomProfiles()
         {
-            int limit = 3;
             List<Profile> profiles = new List<Profile>();
-            IEnumerable<int> sequence = Enumerable.Range(0, ProfileList.Count-1).OrderBy(n => n * n * (new Random()).Next());
-            //If limit is higher than 
-            if(sequence.Count() < 3)
+            //Determine that Profile List is not without memory
+            if (ProfileList != null)
             {
-                limit = sequence.Count();
-            }
-            IEnumerable<int> result = sequence.Distinct().Take(limit);
-            foreach(int index in result)
-            {
-                profiles.Add(ProfileList[index]);
+                int limit = 3;
+                IEnumerable<int> sequence = Enumerable.Range(0, ProfileList.Count - 1).OrderBy(n => n * n * (new Random()).Next());
+                //If limit is higher than 
+                if (sequence.Count() < 3)
+                {
+                    limit = sequence.Count();
+                }
+                IEnumerable<int> result = sequence.Distinct().Take(limit);
+                foreach (int index in result)
+                {
+                    profiles.Add(ProfileList[index]);
+                }
             }
             return profiles;
         }

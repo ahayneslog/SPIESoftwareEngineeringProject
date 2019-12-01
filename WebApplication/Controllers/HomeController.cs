@@ -28,14 +28,19 @@ namespace WebApplication.Controllers
             //If both populated and validated, redirect to profileView with correct ID
             if (!String.IsNullOrEmpty(txtSearch))
             {
-                string firstName = txtSearch.Substring(0, txtSearch.IndexOf(' '));
-                string lastName = txtSearch.Substring(txtSearch.IndexOf(' ') + 1);
-                ProfileCollection collection = new ProfileCollection();
-                int profileID = collection.GetIndexOfProfileByName(firstName, lastName);
-                if (profileID > 0 && profileID <= collection.ProfileList.Count)
+                //Validation
+                string[] names = txtSearch.Split(' ');
+                //There needs to be two values
+                if(names.Length > 1)
                 {
-                    //RedirectToAction("profileView", id.ToString());
-                    return RedirectToAction(actionName: "profileView", controllerName: "profile", routeValues: new {id = profileID});
+                    string firstName = txtSearch.Substring(0, txtSearch.IndexOf(' '));
+                    string lastName = txtSearch.Substring(txtSearch.IndexOf(' ') + 1);
+                    ProfileCollection collection = new ProfileCollection();
+                    int profileID = collection.GetIndexOfProfileByName(firstName, lastName);
+                    if (profileID > 0 && profileID <= collection.ProfileList.Count)
+                    {
+                        return RedirectToAction(actionName: "profileView", controllerName: "profile", routeValues: new { id = profileID });
+                    }
                 }
             }
             return RedirectToAction("Index");

@@ -11,16 +11,22 @@ namespace WebApplication.Models.Profile
 
         public ProfileModel(int ID)
         {
+            //Retrieve current selection of profiles
             ProfileCollection collection = new ProfileCollection();
-
+            //Determine if queried profile exists
             Profiles.Business.Profile userProfile = collection.GetProfile(ID);
-
-            FullName = userProfile.FirstName + " " + userProfile.LastName;
-            SPIERole = userProfile.SPIERole;
-            Company = userProfile.Company;
-            JobTitle = userProfile.JobTitle;
-            PictureFileName = userProfile.PictureFileName;
-
+            if(userProfile != null)
+            {
+                FullName = userProfile.FirstName + " " + userProfile.LastName;
+                SPIERole = userProfile.SPIERole;
+                Company = userProfile.Company;
+                JobTitle = userProfile.JobTitle;
+                PictureFileName = userProfile.PictureFileName;
+            }
+            else
+            {
+                throw new Exception("Profile doesn't exist");
+            }
         }
 
 

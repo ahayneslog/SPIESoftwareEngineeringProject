@@ -9,12 +9,12 @@ namespace WebApplication.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             ProfileCollection collection = new ProfileCollection();
 
             return View(collection);
         }
-
     }
 }

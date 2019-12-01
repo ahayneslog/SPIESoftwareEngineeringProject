@@ -5,40 +5,6 @@
     ViewBag.Title = "Profile Home Page";
 }
 
-@Scripts.Render("~/Scripts/ProfileHelper.js")
-
-@section scripts {
-
-    <script>
-
-        function searchFunction(txtBar)
-        {
-            nameSearch = document.getElementById(txtBar).value
-            firstName = nameSearch.substr(0,nameSearch.indexOf(' '));
-            lastName = nameSearch.substr(nameSearch.indexOf(' ') + 1);
-            id = @Model.GetIndexOfProfileByName("Samantha", "Johnson");
-            path = false;
-            if (id > 0)
-            {
-                path = true;
-                document.getElementById("hSearch").href = "/profiles/view/" + id;
-            }
-            if (!isBlank(firstName) && !isBlank(lastName))
-            {
-                alert("Found id: " + id + " and nameSearch is: " + firstName + " " + lastName)
-            }
-            return path;
-        }
-
-        function isBlank(str)
-        {
-            return (!str || /^\s*$/.test(str));
-        }
-
-    </script>
-
-}
-
 <div style="width:580px;display:inline-block">
 
     <table>
@@ -55,11 +21,13 @@
             <tr>
                 <td>
                     <span class="formText01" style="color: #000000; font-size: 20px;">Search Profiles</span> <br>
-                    <input name="txtSearch" type="text" maxlength="100" id="txtSearch" class="formFieldCommon inputSearch" style="float:left;font-size:18px;height:40px;padding:4px;  border: solid 1px #bfc0c1;">
-                    <a id="hSearch" style="height:30px;cursor:pointer;" onmouseout="document.getElementById('imgSearch').src='/images/MagGlass_Btn_Norm.jpg';"
-                       href="#" target="_blank" onclick='return searchFunction("txtSearch")' onmouseover="document.getElementById('imgSearch').src='/images/MagGlass_Btn_Over.jpg';">
-                        <img id="imgSearch" src="/images/MagGlass_Btn_Norm.jpg" border="0">
-                    </a>
+                    <form action="SearchProfiles" method="get">
+                        <input name="txtSearch" type="text" maxlength="100" id="txtSearch" class="formFieldCommon inputSearch" style="float:left;font-size:18px;height:40px;padding:4px;  border: solid 1px #bfc0c1;">
+                        <a id="hSearch" style="height:30px;cursor:pointer;" onmouseout="document.getElementById('imgSearch').src='/images/MagGlass_Btn_Norm.jpg';"
+                           onmouseover="document.getElementById('imgSearch').src='/images/MagGlass_Btn_Over.jpg';">
+                            <img id="imgSearch" src="/images/MagGlass_Btn_Norm.jpg" border="0">
+                        </a>
+                    </form>
                 </td>
 
                 <td>

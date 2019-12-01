@@ -143,11 +143,15 @@ namespace Profiles.Business
         public List<Profile> GetRandomProfiles()
         {
             int limit = 3;
-            int non_limit = -1;
             List<Profile> profiles = new List<Profile>();
-            var sequence = Enumerable.Range(0, ProfileList.Count-1).OrderBy(n => n * n * (new Random()).Next());
-            var result = sequence.Distinct().Take(limit);
-            foreach(var index in result)
+            IEnumerable<int> sequence = Enumerable.Range(0, ProfileList.Count-1).OrderBy(n => n * n * (new Random()).Next());
+            //If limit is higher than 
+            if(sequence.Count() < 3)
+            {
+                limit = sequence.Count();
+            }
+            IEnumerable<int> result = sequence.Distinct().Take(limit);
+            foreach(int index in result)
             {
                 profiles.Add(ProfileList[index]);
             }

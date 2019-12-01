@@ -23,7 +23,7 @@ namespace Profiles.Business
                     Company = "SPIE",
                     SPIERole = "SPIE Member",
                     JobTitle = "UX/UI Designer",
-                    PictureFileName = "jimbob.jpg"
+                    PictureFileName = "jimbob1.jpg"
                 },
                 new Profile()
                 {
@@ -54,6 +54,36 @@ namespace Profiles.Business
                     SPIERole = "SPIE Member",
                     JobTitle = "Embedded Optical Engineer",
                     PictureFileName = "jonathonwatkinson.jpg"
+                },
+                 new Profile()
+                {
+                    ID = 5,
+                    FirstName = "Cynthia",
+                    LastName = "Acosta",
+                    Company = "NASA",
+                    SPIERole = "SPIE Member",
+                    JobTitle = "Software Engineer",
+                    PictureFileName = "cynthiaacosta.jpg"
+                },
+                  new Profile()
+                {
+                    ID = 6,
+                    FirstName = "Jim",
+                    LastName = "Bob",
+                    Company = "Blue Origins",
+                    SPIERole = "SPIE Member",
+                    JobTitle = "Research Engineer",
+                    PictureFileName = "jimbob2.jpg"
+                },
+                  new Profile()
+                {
+                    ID = 7,
+                    FirstName = "Albert",
+                    LastName = "Zhang",
+                    Company = "Space X",
+                    SPIERole = "SPIE Member",
+                    JobTitle = "Research Engineer",
+                    PictureFileName = "albertzhang.jpg"
                 }
             };
         }
@@ -104,6 +134,24 @@ namespace Profiles.Business
                 }
             }
             return foundIndex;
+        }
+
+        /// <summary>
+        /// Randomly selects up to three profiles to display on the Home Page.
+        /// </summary>
+        /// <returns></returns>
+        public List<Profile> GetRandomProfiles()
+        {
+            int limit = 3;
+            int non_limit = -1;
+            List<Profile> profiles = new List<Profile>();
+            var sequence = Enumerable.Range(0, ProfileList.Count-1).OrderBy(n => n * n * (new Random()).Next());
+            var result = sequence.Distinct().Take(limit);
+            foreach(var index in result)
+            {
+                profiles.Add(ProfileList[index]);
+            }
+            return profiles;
         }
     }
 }

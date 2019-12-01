@@ -139,8 +139,11 @@
     <Content Include="Images\ConfApp_Over.jpg" />
     <Content Include="Images\MagGlass_Btn_Norm.jpg" />
     <Content Include="Images\MagGlass_Btn_Over.jpg" />
+    <Content Include="Images\ProfilePictures\cynthiaacosta.jpg" />
+    <Content Include="Images\ProfilePictures\jimbob2.jpg" />
+    <Content Include="Images\ProfilePictures\albertzhang.jpg" />
     <Content Include="Images\ProfilePictures\jackiezope.jpg" />
-    <Content Include="Images\ProfilePictures\jimbob.jpg" />
+    <Content Include="Images\ProfilePictures\jimbob1.jpg" />
     <Content Include="Images\ProfilePictures\jonathonwatkinson.jpg" />
     <Content Include="Images\ProfilePictures\samanthajohnson.jpg" />
     <Content Include="Images\ProfilesApp_norm.jpg" />

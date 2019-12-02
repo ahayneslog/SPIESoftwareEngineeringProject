@@ -8,7 +8,6 @@ namespace Profiles.Business
 {
     public class ProfileCollection
     {
-
         public List<Profile> ProfileList;
 
         public ProfileCollection()
@@ -89,7 +88,7 @@ namespace Profiles.Business
         }
 
         /// <summary>
-        /// 
+        /// Retrieve the specified profile by ID number. 
         /// </summary>
         /// <param name="ID">Associated ID to User</param>
         /// <returns>If ID was valid, a profile. Otherwise, a null value.</returns>
@@ -120,20 +119,43 @@ namespace Profiles.Business
             return foundProfile;
         }
 
-        public int GetIndexOfProfileByName(string fName, string lName)
+
+        public List<Profile> GetProfilesByFirstNameOrLastName(string name)
         {
-            int foundIndex = -1;
-            foreach (var person in ProfileList.Select((x, i) => new { profile = x, index = i }))
+            List<Profile> profiles = new List<Profile>();
+            foreach (Profile person in ProfileList)
             {
                 //Profile Found, collect index and break out of ForEach Loop
-                if (person.profile.FirstName.ToUpper().Equals(fName.ToUpper()) &&
-                    person.profile.LastName.ToUpper().Equals(lName.ToUpper()))
+                if (person.FirstName.ToUpper().Equals(name.ToUpper()) ||
+                    person.LastName.ToUpper().Equals(name.ToUpper()))
                 {
-                    foundIndex = person.index+1;
-                    break;
+                    profiles.Add(person);
                 }
             }
-            return foundIndex;
+            return profiles;
+        }
+
+        /// <summary>
+        /// Retrieve profiles by first name and last name.
+        /// </summary>
+        /// <param name="fName"></param>
+        /// <param name="lName"></param>
+        /// <returns>
+        /// If first name and last names matchs, profile(s) will be returned. 
+        /// Otherwise, a null value.</returns>
+        public List<Profile> GetProfilesByFullName(string fName, string lName)
+        {
+            List<Profile> profiles = new List<Profile>();
+            foreach (Profile person in ProfileList)
+            {
+                //Profile Found, collect index and break out of ForEach Loop
+                if (person.FirstName.ToUpper().Equals(fName.ToUpper()) &&
+                    person.LastName.ToUpper().Equals(lName.ToUpper()))
+                {
+                    profiles.Add(person);
+                }
+            }
+            return profiles;
         }
 
         /// <summary>

@@ -30,17 +30,34 @@ namespace WebApplication.Controllers
             {
                 //Validation
                 string[] names = txtSearch.Split(' ');
-                //There needs to be two values
+                //Retrieve profiles
+                ProfileCollection collection = new ProfileCollection();
+                List<Profile> profiles = new List<Profile>();
+
+                //Partial Name Search
+                if (names.Length == 1)
+                {
+                    profiles = collection.GetProfilesByFirstNameOrLastName(txtSearch);
+                }
+                //Full Name Search
                 if(names.Length > 1)
                 {
                     string firstName = txtSearch.Substring(0, txtSearch.IndexOf(' '));
+                    //Treat everything after first white space as Last Name
                     string lastName = txtSearch.Substring(txtSearch.IndexOf(' ') + 1);
-                    ProfileCollection collection = new ProfileCollection();
-                    int profileID = collection.GetIndexOfProfileByName(firstName, lastName);
-                    if (profileID > 0 && profileID <= collection.ProfileList.Count)
-                    {
-                        return RedirectToAction(actionName: "profileView", controllerName: "profile", routeValues: new { id = profileID });
-                    }
+                    profiles = collection.GetProfilesByFullName(firstName, lastName);
+                }
+
+                //If only one profile comes back, go directly to it
+                //If more than one comes back, go to Search Results View
+                //If none come back, do nothing
+                if (profiles.Count == 1)
+                {
+                    return RedirectToAction(actionName: "profileView", controllerName: "profile", routeValues: new { id = profiles[0].ID });
+                }
+                else if (profiles.Count > 1)
+                {
+                    //Add RedirectToAction(actionName: "searchResultsView", controllerName: "searchResults", routeValues: profiles)
                 }
             }
             return RedirectToAction("Index");

@@ -119,15 +119,20 @@ namespace Profiles.Business
             return foundProfile;
         }
 
-
+        /// <summary>
+        /// Retrieve profiles by the single name input.
+        /// It can match against first or last name. 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public List<Profile> GetProfilesByFirstNameOrLastName(string name)
         {
             List<Profile> profiles = new List<Profile>();
             foreach (Profile person in ProfileList)
             {
                 //Profile Found, collect index and break out of ForEach Loop
-                if (person.FirstName.ToUpper().Equals(name.ToUpper()) ||
-                    person.LastName.ToUpper().Equals(name.ToUpper()))
+                if (person.FirstName.ToUpper().Contains(name.ToUpper()) ||
+                    person.LastName.ToUpper().Contains(name.ToUpper()))
                 {
                     profiles.Add(person);
                 }
@@ -149,8 +154,8 @@ namespace Profiles.Business
             foreach (Profile person in ProfileList)
             {
                 //Profile Found, collect index and break out of ForEach Loop
-                if (person.FirstName.ToUpper().Equals(fName.ToUpper()) &&
-                    person.LastName.ToUpper().Equals(lName.ToUpper()))
+                if (person.FirstName.ToUpper().Contains(fName.ToUpper()) &&
+                    person.LastName.ToUpper().Contains(lName.ToUpper()))
                 {
                     profiles.Add(person);
                 }

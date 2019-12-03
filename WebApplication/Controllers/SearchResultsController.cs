@@ -45,5 +45,10 @@ namespace WebApplication.Controllers
         {
             return RedirectToAction(actionName: "profileView", controllerName: "profile", routeValues: new { id = id });
         }
+
+        public ActionResult Edit(string id)
+        {
+            return RedirectToAction(actionName: "Edit", controllerName: "profile", routeValues: new { id = id });
+        }
     }
 }

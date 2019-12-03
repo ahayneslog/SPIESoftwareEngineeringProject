@@ -175,6 +175,7 @@
     <Content Include="Views\Profile\Profile.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SearchResults\SearchResults.cshtml" />
+    <Content Include="Views\Profile\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

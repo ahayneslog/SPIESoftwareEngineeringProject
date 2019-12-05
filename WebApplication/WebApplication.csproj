@@ -51,6 +51,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -142,7 +143,7 @@
     <Content Include="Images\MagGlass_Btn_Over.jpg" />
     <Content Include="Images\ProfilePictures\cynthiaacosta.jpg" />
     <Content Include="Images\ProfilePictures\jimbob2.jpg" />
-    <Content Include="Images\ProfilePictures\albertzhang.jpg" />
+    <Content Include="Images\ProfilePictures\josedelacruz.jpg" />
     <Content Include="Images\ProfilePictures\jackiezope.jpg" />
     <Content Include="Images\ProfilePictures\jimbob1.jpg" />
     <Content Include="Images\ProfilePictures\jonathonwatkinson.jpg" />
@@ -176,6 +177,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SearchResults\SearchResults.cshtml" />
     <Content Include="Views\Profile\EditProfile.cshtml" />
+    <Content Include="Views\Profile\Create.cshtml" />
+    <Content Include="Views\Profile\Logon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

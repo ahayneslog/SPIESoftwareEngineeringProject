@@ -22,6 +22,29 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 </ul>
+                @{
+                    if (Request.Cookies["User"] != null)
+                    {
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Logoff", "Logoff", "Profile")</li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Logon", "Logon", "Profile")</li>
+                        </ul>
+                    }
+
+
+                    if (Request.Cookies["Username"] != null)
+                    {
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink(Request.Cookies["Username"].Value, "Index", "Home")</li>
+                        </ul>
+                    }
+                }
+
             </div>
         </div>
     </div>

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Profiles.Business
 {
@@ -22,6 +20,9 @@ namespace Profiles.Business
                     Company = "SPIE",
                     SPIERole = "SPIE Member",
                     JobTitle = "UX/UI Designer",
+                    username = "1",
+                    password = "A",
+                    role = "ADMIN",
                     PictureFileName = "jimbob1.jpg"
                 },
                 new Profile()
@@ -32,6 +33,9 @@ namespace Profiles.Business
                     Company = "SPIE",
                     SPIERole = "SPIE Fellow",
                     JobTitle = "Optics & Photonics Researcher",
+                    username = "2",
+                    password = "b",
+                    role = "USER",
                     PictureFileName = "samanthajohnson.jpg"
                 },
                 new Profile()
@@ -42,6 +46,9 @@ namespace Profiles.Business
                     Company = "NASA",
                     SPIERole = "SPIE Conference Chair",
                     JobTitle = "Astrophysicist",
+                    username = "3",
+                    password = "C",
+                    role = "USER",
                     PictureFileName = "jackiezope.jpg"
                 },
                  new Profile()
@@ -52,6 +59,9 @@ namespace Profiles.Business
                     Company = "Blue Origins",
                     SPIERole = "SPIE Member",
                     JobTitle = "Embedded Optical Engineer",
+                    username = "4",
+                    password = "D",
+                    role = "USER",
                     PictureFileName = "jonathonwatkinson.jpg"
                 },
                  new Profile()
@@ -62,6 +72,9 @@ namespace Profiles.Business
                     Company = "NASA",
                     SPIERole = "SPIE Member",
                     JobTitle = "Software Engineer",
+                    username = "5",
+                    password = "E",
+                    role = "USER",
                     PictureFileName = "cynthiaacosta.jpg"
                 },
                   new Profile()
@@ -72,6 +85,9 @@ namespace Profiles.Business
                     Company = "Blue Origins",
                     SPIERole = "SPIE Member",
                     JobTitle = "Research Engineer",
+                    username = "6",
+                    password = "F",
+                    role = "USER",
                     PictureFileName = "jimbob2.jpg"
                 },
                   new Profile()
@@ -82,7 +98,10 @@ namespace Profiles.Business
                     Company = "Space X",
                     SPIERole = "SPIE Member",
                     JobTitle = "Research Engineer",
-                    PictureFileName = "albertzhang.jpg"
+                    username = "7",
+                    password = "G",
+                    role = "USER",
+                    PictureFileName = "josedelacruz.jpg"
                 }
             };
         }
@@ -132,7 +151,6 @@ namespace Profiles.Business
         public List<Profile> GetRandomProfiles()
         {
             List<Profile> profiles = new List<Profile>();
-            //Determine that Profile List is not without memory
             if (ProfileList != null)
             {
                 int limit = 3;

@@ -2,6 +2,14 @@
 
 This is my submission to the take home assignment for the SPIE Software Engineering position. 
 
+# How to Start up Service
+- Download zip and put it into a new solution in Visual Studio
+- Build the project
+	- If you run into issues building the project, it may be Roslyn related. To resolve this issue, go to "Package Manager Console" 
+	and type in the following command: `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
+- To start the project, you may need to switch the "View" of the project if you run into issues with the Debugger not stating "IIS Express (browser of your choice)". 
+You can switch the view of the project by going to "Solution Explorer" and look for the icon that has a folder and a console window. Click it and select "WebApplication.sln"
+
 ## Bug Fixes
 - On the home page, the search profiles text box doesn't line up with the magnifying glass. Change it so the bottom of the text box lines up with the magnifying glassimage
 	- **A fix has been implemented.**
@@ -23,5 +31,6 @@ This is my submission to the take home assignment for the SPIE Software Engineer
 	- **This feature has been implemented.**
 
 ## New Features not part of the Requirements/Unmentioned Bugs
-- Randomization of profiles in the "Who's on SPIE'" feature on the right side of the page. 
+- Randomization of profiles in the "Who's using SPIE?'" feature on the right side of the page. 
 - The Sign Up link did not work. I have created a page that allows a user to create a basic profile. 
+- I added more profiles manually that covers more interesting name search scenarios.

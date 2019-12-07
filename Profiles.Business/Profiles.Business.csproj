@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Profile.cs" />
     <Compile Include="ProfileCollection.cs" />
+    <Compile Include="ProfileRoles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

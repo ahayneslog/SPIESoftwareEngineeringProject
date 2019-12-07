@@ -16,7 +16,7 @@ namespace WebApplication.Controllers
             {
                 return View("Profile", new ProfileModel(Int32.Parse(id)));
             }
-            catch(Exception e)
+            catch (Exception)
             {
                 return RedirectToAction(actionName: "Index", controllerName: "Home");
             }
@@ -28,7 +28,7 @@ namespace WebApplication.Controllers
             {
                 return View("EditProfile", new ProfileModel(Int32.Parse(id)));
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return RedirectToAction(actionName: "Index", controllerName: "Home");
             }
@@ -36,14 +36,15 @@ namespace WebApplication.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID")] ProfileModel profile)
+        public ActionResult Edit(FormCollection fc)
         {
-            if(ModelState.IsValid)
-            {
-                //update code here
-                //use db to perform update
-            }
-            return RedirectToAction(actionName: "Index", controllerName: "Home");
+            ProfileModel newProfile = new ProfileModel();
+            newProfile.Company = fc["Company"];
+            newProfile.JobTitle = fc["JobTitle"];
+            //Not adding code here because we should be using the ID of the profile to make the update to the database
+            //and then return the new model to the EditProfile view
+            //Design Issue here: ProfileModel does not contain the ID of the profile
+            return View("EditProfile", newProfile);
         }
 
         public ActionResult Create()
@@ -53,10 +54,33 @@ namespace WebApplication.Controllers
 
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(FormCollection fc)
         {
             try
             {
+                Profile newProfile = new Profile();
+                var fullName = fc["FullName"];
+                
+                
+                string firstName = fullName.Substring(0, fullName.IndexOf(' '));
+                //Treat everything after first white space as Last Name
+                string lastName = fullName.Substring(fullName.IndexOf(' ') + 1);
+                newProfile.FirstName = firstName;
+                newProfile.LastName = lastName;
+                newProfile.Company = fc["Company"];
+                newProfile.JobTitle = fc["JobTitle"];
+                newProfile.role = ProfileRoles.USER;
+                newProfile.SPIERole = "SPIE Member";
+                //In future builds, add validation check if username already exists
+                newProfile.username = fc["Username"];
+                //In future builds, add validation check if password meets password requirements
+                newProfile.username = fc["Password"];
+                //Next two lines would be replaced with a database call if user passes all validation checks
+                ProfileCollection collection = new ProfileCollection();
+                collection.ProfileList.Add(newProfile);
+
+                //After database call is successful, send the user to profileView with newly created ID
+                //otherwise, for assignment demo purpose, just go back home
                 return RedirectToAction(actionName: "Index", controllerName: "Home");
             }
             catch

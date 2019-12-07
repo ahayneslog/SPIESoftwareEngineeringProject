@@ -22,7 +22,7 @@ namespace Profiles.Business
                     JobTitle = "UX/UI Designer",
                     username = "1",
                     password = "A",
-                    role = "ADMIN",
+                    role = ProfileRoles.ADMIN,
                     PictureFileName = "jimbob1.jpg"
                 },
                 new Profile()
@@ -35,7 +35,7 @@ namespace Profiles.Business
                     JobTitle = "Optics & Photonics Researcher",
                     username = "2",
                     password = "b",
-                    role = "USER",
+                    role = ProfileRoles.USER,
                     PictureFileName = "samanthajohnson.jpg"
                 },
                 new Profile()
@@ -48,7 +48,7 @@ namespace Profiles.Business
                     JobTitle = "Astrophysicist",
                     username = "3",
                     password = "C",
-                    role = "USER",
+                    role = ProfileRoles.USER,
                     PictureFileName = "jackiezope.jpg"
                 },
                  new Profile()
@@ -61,7 +61,7 @@ namespace Profiles.Business
                     JobTitle = "Embedded Optical Engineer",
                     username = "4",
                     password = "D",
-                    role = "USER",
+                    role = ProfileRoles.USER,
                     PictureFileName = "jonathonwatkinson.jpg"
                 },
                  new Profile()
@@ -74,7 +74,7 @@ namespace Profiles.Business
                     JobTitle = "Software Engineer",
                     username = "5",
                     password = "E",
-                    role = "USER",
+                    role = ProfileRoles.USER,
                     PictureFileName = "cynthiaacosta.jpg"
                 },
                   new Profile()
@@ -87,7 +87,7 @@ namespace Profiles.Business
                     JobTitle = "Research Engineer",
                     username = "6",
                     password = "F",
-                    role = "USER",
+                    role = ProfileRoles.USER,
                     PictureFileName = "jimbob2.jpg"
                 },
                   new Profile()
@@ -100,7 +100,7 @@ namespace Profiles.Business
                     JobTitle = "Research Engineer",
                     username = "7",
                     password = "G",
-                    role = "USER",
+                    role = ProfileRoles.USER,
                     PictureFileName = "josedelacruz.jpg"
                 }
             };

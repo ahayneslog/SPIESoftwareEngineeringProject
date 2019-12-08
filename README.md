@@ -26,7 +26,9 @@ You can switch the view of the project by going to "Solution Explorer" and look 
 - Add the ability to use the search bar, and have it display a list of profiles that have a partial match with either first or last name
 	- **This feature has been implemented.**
 - Add the ability for someone to edit a profile and have it update
+	- **This feature has been implemented.**
 	- Also can move this ability to edit behind a log in, so random users can't maliciously edit someone else's profile!
+		- **This feature has been implemented.**
 		
 - Add the ability for a profile user to log into the website
 	- **This feature has been implemented.**
@@ -35,3 +37,8 @@ You can switch the view of the project by going to "Solution Explorer" and look 
 - Randomization of profiles in the "Who's using SPIE?'" feature on the right side of the page. 
 - The Sign Up link did not work. I have created a page that allows a user to create a basic profile. 
 - I added more profiles manually that covers more interesting name search scenarios.
+- I added the user's name on the nav bar and if clicked, it will pop up a new page with the profile's details
+
+## Unit Tests
+- Please use the account `Username = 1;Password = A` to see an Admin role's view in effect. 
+- Please use the account `Username = 2;Password = b` to see a normal user role's view in effect. 

@@ -40,5 +40,8 @@ You can switch the view of the project by going to "Solution Explorer" and look 
 - I added the user's name on the nav bar and if clicked, it will pop up a new page with the profile's details
 
 ## Unit Tests
-- Please use the account `Username = 1;Password = A` to see an Admin role's view in effect. 
-- Please use the account `Username = 2;Password = b` to see a normal user role's view in effect. 
+- Use the account `Username = 1;Password = A` to see an Admin role's view in effect. 
+- Use the account `Username = 2;Password = b` to see a normal user role's view in effect. 
+- Use the word `jim` in the search bar to see multiple 'Jim' users.
+- Use the word `de` in the search bar to see how the multiple words in last name case is handled. 
+- Test variations in the search bar to see how it's handled by the web server. For example `{domain}/SearchResults/SearchResults`.

@@ -112,8 +112,11 @@ namespace WebApplication.Controllers
                         userID.Value = profile.ID.ToString();
                         HttpCookie userNm = new HttpCookie("Username");
                         userNm.Value = profile.FirstName;
+                        HttpCookie role = new HttpCookie("Role");
+                        role.Value = profile.role;
                         this.ControllerContext.HttpContext.Response.Cookies.Add(userID);
                         this.ControllerContext.HttpContext.Response.Cookies.Add(userNm);
+                        this.ControllerContext.HttpContext.Response.Cookies.Add(role);
                     }
                 }
 
@@ -143,6 +146,12 @@ namespace WebApplication.Controllers
             if (this.ControllerContext.HttpContext.Request.Cookies.AllKeys.Contains("Username"))
             {
                 HttpCookie cookie = this.ControllerContext.HttpContext.Request.Cookies["Username"];
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                this.ControllerContext.HttpContext.Response.Cookies.Add(cookie);
+            }
+            if (this.ControllerContext.HttpContext.Request.Cookies.AllKeys.Contains("Role"))
+            {
+                HttpCookie cookie = this.ControllerContext.HttpContext.Request.Cookies["Role"];
                 cookie.Expires = DateTime.Now.AddDays(-1);
                 this.ControllerContext.HttpContext.Response.Cookies.Add(cookie);
             }

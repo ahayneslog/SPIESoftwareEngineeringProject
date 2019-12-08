@@ -6,7 +6,8 @@ This is my submission to the take home assignment for the SPIE Software Engineer
 - Download zip and put it into a new solution in Visual Studio
 - Build the project
 	- If you run into issues building the project, it may be Roslyn related. To resolve this issue, go to "Package Manager Console" 
-	and type in the following command: `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
+	and type in the following command: 
+	`Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 - To start the project, you may need to switch the "View" of the project if you run into issues with the Debugger not stating "IIS Express (browser of your choice)". 
 You can switch the view of the project by going to "Solution Explorer" and look for the icon that has a folder and a console window. Click it and select "WebApplication.sln"
 

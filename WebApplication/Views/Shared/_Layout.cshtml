@@ -37,11 +37,12 @@
                     }
 
 
-                    if (Request.Cookies["Username"] != null)
+                    if (Request.Cookies["Username"] != null && Request.Cookies["User"] != null)
                     {
-                        <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink(Request.Cookies["Username"].Value, "Index", "Home")</li>
-                        </ul>
+            <ul class="nav navbar-nav">
+                <!--<li>@Html.ActionLink(Request.Cookies["Username"].Value, "profileView", "Profile", new { id = Int32.Parse(Request.Cookies["User"].Value) })</li>-->
+                <li><a target="_blank" href="/profiles/view/@Request.Cookies["User"].Value">@Request.Cookies["Username"].Value</a></li>
+            </ul>
                     }
                 }
 
